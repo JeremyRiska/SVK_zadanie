@@ -7,12 +7,8 @@ use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
-    private $countryRepo;
 
-    public function __construct(CountryRepositoryInterface $countryRepo)
-    {
-        $this->countryRepo = $countryRepo;
-    }
+    public function __construct(private CountryRepositoryInterface $countryRepo) {}
 
     public function index($order, $searchQuery)
     {

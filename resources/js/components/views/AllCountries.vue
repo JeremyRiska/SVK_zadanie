@@ -8,11 +8,11 @@
                         <div class="row">
                             <div class="col-8">
                                 <form action="#" @submit.prevent="searchByContinent()">
-                                    <input class="input" type="text" placeholder="find" v-model="continentToSearch">
+                                    <input class="input" type="text" placeholder="filter by continent name" v-model="continentToSearch">
                                 </form>
                             </div>
-
                         </div>
+
                         <div class="row">
                             <div class="col-12">
                                 <table class="table">
@@ -37,6 +37,7 @@
                             </div>
                             <Bootstrap5Pagination :data="laravelData" @pagination-change-page="getResults"></Bootstrap5Pagination>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -62,7 +63,6 @@
         },
         methods: {
             searchByContinent() {
-                // console.log(this.searchDemo)
                 this.searchQuery = this.continentToSearch;
                 this.getResults();
             },
@@ -77,7 +77,6 @@
                 const response = await fetch(url);
                 this.laravelData = await response.json();
             },
-
             selectCountry(country) {
                 this.$store.commit('setSelectedCountry', country);
             },

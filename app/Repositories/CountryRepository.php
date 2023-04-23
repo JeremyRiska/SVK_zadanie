@@ -11,7 +11,7 @@ class CountryRepository implements CountryRepositoryInterface
 {
     public function getAllCountries($order, $searchQuery)
     {
-        $allCountries = Country::query()
+        return Country::query()
             ->with('continent')
             ->whereHas('continent', function ($query) use ($searchQuery) {
 
@@ -19,12 +19,13 @@ class CountryRepository implements CountryRepositoryInterface
                     $query->where('name', 'LIKE', '%' . $searchQuery . '%');
                 } 
             })->orderBy('name', $order)->paginate(10);
-
-        return $allCountries;
     }
+    
     public function getAllContinents()
     {
-        return Continent::query()->get()->all();
+        return Cache::rememberForever('all-continents', function () { 
+            return Continent::query()->get();
+        });
     }
 
     public function storeCountry($request)

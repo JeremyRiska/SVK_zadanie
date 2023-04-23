@@ -50,10 +50,7 @@
 
 <script>
     export default {
-        // props: [
-        //     'id',
-        //     'countryData'
-        // ],
+        
         name: 'CountryDetail',
         mounted() {
             console.log('Component mounted.')

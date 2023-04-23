@@ -6,27 +6,27 @@
                     <div class="card-header">New Country</div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Country code</label>
+                            <label class="form-label">Country code</label>
                             <input class="form-control" type="text" placeholder="Default input" v-model="code" aria-label="default input example">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Name</label>
+                            <label class="form-label">Name</label>
                             <input class="form-control" type="text" placeholder="Default input" v-model="name" aria-label="default input example">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Full name</label>
+                            <label class="form-label">Full name</label>
                             <input class="form-control" type="text" placeholder="Default input" v-model="full_name" aria-label="default input example">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">ISO 3</label>
+                            <label class="form-label">ISO 3</label>
                             <input class="form-control" type="text" placeholder="Default input" v-model="iso3" aria-label="default input example">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Number (ISO 3)</label>
+                            <label class="form-label">Number (ISO 3)</label>
                             <input class="form-control" type="text" placeholder="Default input" v-model="number" aria-label="default input example">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Continent</label>
+                            <label class="form-label">Continent</label>
                             <select class="form-select" aria-label="Default select example" v-model="continent_code">
                                 <option  v-for="continent in continents" :key="continent.code" :value="continent.code"> {{ continent.name }} </option>
                             </select>
@@ -47,7 +47,6 @@ import axios from 'axios';
         data () {
             return {
                 continents: [],
-
                 code: '',
                 name: '',
                 full_name: '',
