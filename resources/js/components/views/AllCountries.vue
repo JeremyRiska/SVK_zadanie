@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center pt-5 pb-3">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">All countries</div>
@@ -73,7 +73,8 @@
                 this.getResults()
             },
             async getResults(page = 1) {
-                let url = `/api/get-countries/${this.order}/${this.searchQuery}?page=${page}`;
+                // let url = `/api/get-countries/${this.order}/${this.searchQuery}?page=${page}`;
+                let url = `/api/get-countries?order=${this.order}&searchQuery=${this.searchQuery}&page=${page}`;
                 const response = await fetch(url);
                 this.laravelData = await response.json();
             },

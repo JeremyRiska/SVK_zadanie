@@ -10,9 +10,9 @@ class CountryController extends Controller
 
     public function __construct(private CountryRepositoryInterface $countryRepo) {}
 
-    public function index($order, $searchQuery)
+    public function index(Request $request)
     {
-        return response()->json($this->countryRepo->getAllCountries($order, $searchQuery));
+        return response()->json($this->countryRepo->getAllCountries($request->query('order'), $request->query('searchQuery')));
     }
     
     public function allContinents()

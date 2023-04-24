@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/get-countries/{order}/{searchQuery}',  [CountryController::class , 'index']);
+// Route::get('/get-countries/{order}/{searchQuery}',  [CountryController::class , 'index']);
+Route::get('/get-countries',  [CountryController::class , 'index']);
 Route::get('/get-continents', [CountryController::class, 'allContinents']);
 Route::post('/save-country', [CountryController::class, 'saveCountry']);
