@@ -1,8 +1,8 @@
 Running the app. 
 1. clone repository and open root folder in console. 
-2. type composer install to attach all dependencies
+2. type composer install to install all dependencies
 3. run npm install to get all front-end packages
-4. run migrations usign command php artisan migrate 
+4. run migrations using command php artisan migrate 
     If this throws an error, migrations need to be executed directly from app container.
     4.1 type docker ps to get list of containers.
     4.2 Copy the id of app container.
