@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+    import axios from 'axios';
 
     export default {
         name: 'AddCountry',
@@ -105,17 +105,13 @@ import axios from 'axios';
                     continent_code: this.continent_code
                 }
                 axios.post('/api/save-country', newCountry).then(response => {
-                    this.$router.push({
-                        path: `/spa/home`,
-                        query: {
-                            notification: 'new city' + response.data.name + 'has been added',
-                        }
-                    });
+                    this.$toast.success('New city ' + response.data.name + ' has been added');
+                    this.$router.push('/spa/home');
                 })
                 .catch(errors => {
-                    this.errors = errors.response?.data?.errors || {};
+                    this.errors = errors.response.data.errors;
                 })
             }
         }
-    };
+    }
 </script>

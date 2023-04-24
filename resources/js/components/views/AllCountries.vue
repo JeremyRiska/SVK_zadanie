@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <div v-if="notification" class="alert alert-success">
+        <!-- <div v-if="notification" class="alert alert-success">
             {{ notification }}
-        </div>
+        </div> -->
         <div class="row justify-content-center pt-5 pb-3">
             <div class="col-12">
                 <div class="card">
@@ -84,23 +84,9 @@
                 this.$store.commit('setSelectedCountry', country);
             },
         },
-        computed: {
-            notification() {
-                return this.$route.query.notification;
-            }
-        },
-        watch: {
-            $route() {
-                if (this.notification) {
-                    setTimeout( () => {
-                        this.$router.replace({ query: { ...this.$route.query, notification: null } });
-                    }, 3000);
-                }
-            }
-        },
         mounted() {
             this.getResults();
-        },
+        }
     };
 </script>
 

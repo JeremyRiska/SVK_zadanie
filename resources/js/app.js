@@ -7,7 +7,10 @@
 import './bootstrap';
 import router from './router';
 import store from './store';
+import Toaster from '@meforma/vue-toaster';
+
 import { createApp } from 'vue';
+
 
 
 /**
@@ -38,5 +41,9 @@ app.component('main-component', MainComponent);
  * an "id" attribute of "app". This element is included with the "auth"
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
-app.use(router).use(store)
+app.use(router).use(store);
+app.use(Toaster, {
+    position: 'top',
+    duration: 3000
+});
 app.mount('#app');

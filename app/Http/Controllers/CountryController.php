@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
-
     public function __construct(private CountryRepositoryInterface $countryRepo) {}
 
     public function index(Request $request)
