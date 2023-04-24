@@ -15,9 +15,10 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+export default {
+
+    mounted() {
+        console.log('Component mounted.')
+     }
+}
 </script>

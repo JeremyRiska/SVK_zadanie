@@ -1,5 +1,8 @@
 <template>
     <div class="container">
+        <div v-if="notification" class="alert alert-success">
+            {{ notification }}
+        </div>
         <div class="row justify-content-center pt-5 pb-3">
             <div class="col-12">
                 <div class="card">
@@ -73,7 +76,6 @@
                 this.getResults()
             },
             async getResults(page = 1) {
-                // let url = `/api/get-countries/${this.order}/${this.searchQuery}?page=${page}`;
                 let url = `/api/get-countries?order=${this.order}&searchQuery=${this.searchQuery}&page=${page}`;
                 const response = await fetch(url);
                 this.laravelData = await response.json();
@@ -81,6 +83,20 @@
             selectCountry(country) {
                 this.$store.commit('setSelectedCountry', country);
             },
+        },
+        computed: {
+            notification() {
+                return this.$route.query.notification;
+            }
+        },
+        watch: {
+            $route() {
+                if (this.notification) {
+                    setTimeout( () => {
+                        this.$router.replace({ query: { ...this.$route.query, notification: null } });
+                    }, 3000);
+                }
+            }
         },
         mounted() {
             this.getResults();

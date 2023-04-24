@@ -23,9 +23,6 @@ class CountryController extends Controller
     public function saveCountry(Request $request)
     {
         $this->countryRepo->storeCountry($request);
-        return response()->json([
-            'message' => 'success',
-            'data' => $request->all()
-        ]);
+        return response()->json($request->all());
     }
 }

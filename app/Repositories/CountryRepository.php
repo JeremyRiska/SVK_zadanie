@@ -30,6 +30,14 @@ class CountryRepository implements CountryRepositoryInterface
 
     public function storeCountry($request)
     {
+        $request->validate([
+            'code' => 'required|max:2|unique:countries',
+            'name' => 'required|max:64',
+            'full_name' => 'required',
+            'iso3' => 'required|max:3|alpha',
+            'number' => 'required|max:3',
+            'continent_code' => 'required|max:2',
+        ]);
        Country::query()->create([
         'code' => $request['code'],
         'name' => $request['name'],
